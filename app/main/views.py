@@ -2,6 +2,7 @@ from flask import render_template,request,redirect,url_for,abort, flash
 from .import main
 from flask_login import login_required,current_user
 from ..models import User,Pitch,Upvote,Downvote,Comment
+from .forms import PitchForm,UpvoteForm,DownvoteForm,CommentForm
 from flask.views import View, MethodView 
 from ..import db
 
