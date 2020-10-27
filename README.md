@@ -2,7 +2,7 @@
 
 # Moringa Core-Pitches
 
-#### Using python-Flask
+#### Using python-Flask & PSQL
 
 ## Description
 
