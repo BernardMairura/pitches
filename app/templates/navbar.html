@@ -9,7 +9,7 @@
               <span class="icon-bar"></span>
             </button>
             <ul>
-            <a style="text-align: center; color: whitesmoke;" class="navbar-brand" href="/pitches/new/"> Post a Pitch </a>
+            <a style="text-align: center; color: whitesmoke;" class="navbar-brand" href="/pitches/new/"> Post a comment </a>
             </ul>
         </div>
         <div class="navbar-nav">
@@ -21,9 +21,9 @@
         <ul class="nav navbar-nav navbar-right">
           {% if current_user.is_authenticated %}
           <li style="color:whitesmoke">{{current_user.username}}</li>
-          
+          <li><a style="color: whitesmoke;"  href="{{url_for('auth.logout')}}">Logout</a></li>
           {% else %}
-          <li><a style="color: whitesmoke;" href="{{url_for('auth.login')}}">Sign in</a></li>
+          <li><a style="color: whitesmoke;" href="{{url_for('auth.login')}}">Login</a></li>
           {%endif%}
         </ul>
       </div>
@@ -32,7 +32,7 @@
       <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li style="color:whitesmoke"></li>
-            
+            <li><a style="color: whitesmoke;"  href="{{url_for('auth.logout')}}"></a></li>
             <li><a style="color: whitesmoke;" href="{{url_for('auth.login')}}"></a></li>
           </ul>
         </div>
