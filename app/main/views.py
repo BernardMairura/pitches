@@ -1,20 +1,29 @@
-from flask import render_template
-from app import app
+from flask import render_template,request,redirect,url_for,abort, flash
+from .import main
+from flask_login import login_required,current_user
+from ..models import User
+from ..import db
 
 # Views
-@app.route('/')
+@main.route('/', methods = ['GET','POST'])
 def index():
 
     '''
     View root page function that returns the index page and its data
     '''
-    return render_template('index.html')
+    pitch = Pitch.query.filter_by().first()
+    title = 'Home'
+    pickuplines = Pitch.query.filter_by(category="pickuplines")
+    interviewpitch = Pitch.query.filter_by(category = "interviewpitch")
+    promotionpitch = Pitch.query.filter_by(category = "promotionpitch")
+    productpitch = Pitch.query.filter_by(category = "productpitch")
+
+    upvotes = Upvote.get_all_upvotes(pitch_id=Pitch.id)
+    
+
+    return render_template('home.html', title = title, pitch = pitch, pickuplines=pickuplines, interviewpitch= interviewpitch, promotionpitch = promotionpitch, productpitch = productpitch, upvotes=upvotes)
+    
 
 
-@app.route('/pitch/<int:pitch_id>')
-def movie(pitch_id):
 
-    '''
-    View movie page function that returns the movie details page and its data
-    '''
-    return render_template('pitch.html',id = pitch_id)
+
