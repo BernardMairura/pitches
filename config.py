@@ -1,11 +1,14 @@
- import os
+import os
 
  
- class Config:
+class Config:
     '''
     General configuration parent class
     '''
-    pass
+
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://bernard:86kerubo19@localhost/watchlist'
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 
 
