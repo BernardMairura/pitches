@@ -45,7 +45,7 @@ class User(db.Model,UserMixin):
 
 class Pitch(db.Model):
 
-    __tablename__ = 'pitches'
+    __tablename__ ='pitches'
 
     id = db.Column(db.Integer, primary_key = True)
     owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
