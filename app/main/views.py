@@ -1,10 +1,10 @@
-from flask import render_template,request,redirect,url_for,abort, flash
-from .import main
+from flask import render_template,request,redirect,url_for,abort
+from . import main
+from .forms import PitchForm,UpvoteForm,CommentForm
+from ..models import User,Pitch,Upvote,Downvote
 from flask_login import login_required,current_user
-from ..models import User,Pitch,Upvote,Downvote,Comment
-from .forms import PitchForm,UpvoteForm,DownvoteForm,CommentForm
-from flask.views import View, MethodView 
-from ..import db
+from .. import db
+from flask.views import View,MethodView
 
 
 
@@ -49,6 +49,7 @@ def new_pitch():
         
         return redirect(url_for('main.index'))
     return render_template('pitches.html',form=form)
+
 
 
 
