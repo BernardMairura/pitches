@@ -11,6 +11,10 @@ class Config:
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://bernard:86kerubo19@localhost/pitches'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 
+    @staticmethod
+    def init_app(app):
+        pass
+
 
 
 
